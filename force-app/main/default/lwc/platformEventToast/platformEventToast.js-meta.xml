@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>48.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Platform Event Toast</masterLabel>
+    <description>This is a generic LWC component for displaying toast message in Salesforce</description>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+        <target>lightning__FlowScreen</target>
+        <target>lightning__UtilityBar</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage,lightning__AppPage,lightning__HomePage,lightningCommunity__Default,lightning__FlowScreen,lightning__UtilityBar">
+            <property name="toastKey" type="String" label="Unique key to identify the Toast" />
+            <property name="toastVariant" type="String" datasource="info,success,warning,error" label="Toast Variant" />
+            <property name="toastMode" type="String" datasource="dismissable,pester,sticky" label="Toast Mode" />
+            <property name="runInSystemMode" type="Boolean" default="false" label="Run in System Mode" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
