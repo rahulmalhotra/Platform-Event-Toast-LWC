@@ -27,12 +27,11 @@ present in the [deployment](#deployment) section of this readme. Installing this
 
 ## Deployment
 
-You can deploy Platform Event Toast directly to your org by clicking the button below
+I have created an unmanaged package so that you can install it in your org very easily. <a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005ZBuw">Click Here</a> to install the package now or use the below URL:-
 
-<a href="https://githubsfdeploy.herokuapp.com?owner=rahulmalhotra&repo=Platform-Event-Toast-LWC&ref=gsdt">
-  <img alt="Deploy to Salesforce"
-       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
-</a>
+```
+https://login.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005ZBuw
+```
 
 ## Usage
 
@@ -84,6 +83,11 @@ If you want to make any changes in the component, you can do that by pulling the
 Below are the tools or softwares I use personally :-
 
 * [VS Code](https://code.visualstudio.com) - Open Source IDE for Salesforce
+
+## Todo
+
+- [ ] Fix deployment issue in platform event with inline help text
+- [ ] Fix :- GitHub Salesforce Deploy Tool not able to deploy LWC (Refer gsdt branch for that)
 
 ## Contributing
 
