@@ -15,7 +15,9 @@
     </targets>
     <targetConfigs>
         <targetConfig targets="lightning__RecordPage,lightning__AppPage,lightning__HomePage,lightningCommunity__Default,lightning__FlowScreen,lightning__UtilityBar">
-            <property name="toastKey" type="String" label="Unique key to identify the Toast" />
+            <property name="toastKeys" type="String" label="Unique key to identify the Toast" description="You can add multiple keys in format:- Key1, Key2,..." />
+            <property name="toastTitle" type="String" label="Title of the Toast" />
+            <property name="toastMessage" type="String" label="Toast Message" />
             <property name="toastVariant" type="String" datasource="info,success,warning,error" label="Toast Variant" />
             <property name="toastMode" type="String" datasource="dismissable,pester,sticky" label="Toast Mode" />
             <property name="runInSystemMode" type="Boolean" default="false" label="Run in System Mode" />

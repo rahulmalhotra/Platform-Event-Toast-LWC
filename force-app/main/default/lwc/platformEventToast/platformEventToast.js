@@ -2,7 +2,7 @@
 *	Author:- Rahul Malhotra
 *	Description:- Platform Event Toast
 *	Created:- 11/04/2020
-*	Last Updated:- 11/04/2020
+*	Last Updated:- 12/04/2020
 *	Code Origin:- SFDCStop (https://www.sfdcstop.com/)
 */
 import { LightningElement, api } from 'lwc';
@@ -12,7 +12,9 @@ import currentUserId from '@salesforce/user/Id';
 
 export default class PlatformEventToast extends LightningElement {
 
-    @api toastKey;
+    @api toastKeys;
+    @api toastTitle;
+    @api toastMessage;
     @api toastVariant;
     @api toastMode;
     @api runInSystemMode;
@@ -20,21 +22,22 @@ export default class PlatformEventToast extends LightningElement {
     subscription = {};
 
     connectedCallback() {
+        this.toastKeys = this.toastKeys ? this.toastKeys.split(',').map(key => key.trim()) : '';
         const ci = this;
         const toastCallback = function(response) {
             let toastData = response['data']['payload'];
             if(
                 toastData &&
                 toastData['Key__c'] &&
-                (toastData['Key__c'] === ci.toastKey) &&
+                ci.toastKeys.includes(toastData['Key__c']) &&
                 (
                     ci.runInSystemMode ||
                     (toastData['CreatedById'] === currentUserId)
                 )
             ) {
                 const toastEvent = new ShowToastEvent({
-                    title: toastData['Title__c'],
-                    message: toastData['Message__c'],
+                    title: toastData['Title__c'] ? toastData['Title__c'] : ci.toastTitle,
+                    message: toastData['Message__c'] ? toastData['Message__c'] : ci.toastMessage,
                     variant: toastData['Variant__c'] ? toastData['Variant__c'] : ci.toastVariant,
                     mode: toastData['Mode__c'] ? toastData['Mode__c'] : ci.toastMode
                 });
