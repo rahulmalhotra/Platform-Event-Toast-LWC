@@ -27,10 +27,22 @@ present in the [deployment](#deployment) section of this readme. Installing this
 
 ## Deployment
 
-I have created an unmanaged package so that you can install it in your org very easily. <a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005ZBuw">Click Here</a> to install the package now or use the below URL:-
+I have created an unmanaged package so that you can install it in your org very easily.
+
+<a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005ZBvB">Click Here</a> to install the package now in a production/developer environment.
+
+or use the below URL:-
 
 ```
-https://login.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005ZBuw
+https://login.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005ZBvB
+```
+
+<a href="https://test.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005ZBvB">Click Here</a> to install the package now in a sandbox environment.
+
+or use the below URL:-
+
+```
+https://test.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005ZBvB
 ```
 
 ## Usage
