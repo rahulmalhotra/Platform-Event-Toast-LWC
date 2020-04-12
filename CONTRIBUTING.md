@@ -9,7 +9,7 @@ Please note we have a code of conduct, please follow it in all your interactions
 ## Pull Request Process
 
 1. Ensure your pull request consists of only the necessary files, any extra dependency should not be included without discussion.
-2. Update the [README.md](README.md) with details of changes.
+2. Update the [README.md](README.md) with details of changes and the todo list also if your pull request consists of a change mentioned in the [todo](README.md#todo).
 3. Make sure your code have proper comments and there is no namespace or any other issue.
 4. Try and deploy your change to multiple orgs and test there before making a pull request.
 5. Always make a separate branch for clarity of your changes and then send a pull request.
