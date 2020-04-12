@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>This platform event is used to display platform event toast in lightning</description>
+    <eventType>HighVolume</eventType>
+    <label>Toast Event</label>
+    <pluralLabel>Toast Events</pluralLabel>
+    <publishBehavior>PublishAfterCommit</publishBehavior>
+    <fields>
+        <fullName>Key__c</fullName>
+        <description>Unique key which is used to identify the toast in lightning component.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Unique key which is used to identify the toast in lightning component.</inlineHelpText>
+        <isFilteringDisabled>false</isFilteringDisabled>
+        <isNameField>false</isNameField>
+        <isSortingDisabled>false</isSortingDisabled>
+        <label>Key</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Message__c</fullName>
+        <description>Message to be displayed in Toast</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Message to be displayed in Toast</inlineHelpText>
+        <isFilteringDisabled>false</isFilteringDisabled>
+        <isNameField>false</isNameField>
+        <isSortingDisabled>false</isSortingDisabled>
+        <label>Message</label>
+        <length>131072</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Mode__c</fullName>
+        <description>Mode of the toast. Must be:- dismissable, pester or sticky</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Supported Values:-
+
+dismissable
+pester
+sticky</inlineHelpText>
+        <isFilteringDisabled>false</isFilteringDisabled>
+        <isNameField>false</isNameField>
+        <isSortingDisabled>false</isSortingDisabled>
+        <label>Mode</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Title__c</fullName>
+        <description>Title of the Toast</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Heading / Title of the Toast</inlineHelpText>
+        <isFilteringDisabled>false</isFilteringDisabled>
+        <isNameField>false</isNameField>
+        <isSortingDisabled>false</isSortingDisabled>
+        <label>Title</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Variant__c</fullName>
+        <description>Toast variant:- Must be info, success, warning or error.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Supported Values:-
+
+info
+success
+warning
+error</inlineHelpText>
+        <isFilteringDisabled>false</isFilteringDisabled>
+        <isNameField>false</isNameField>
+        <isSortingDisabled>false</isSortingDisabled>
+        <label>Variant</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>

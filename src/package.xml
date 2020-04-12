@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+  <types>
+    <name>LightningComponentBundle</name>
+    <members>platformEventToast</members>
+  </types>
+  <types>
+    <name>CustomField</name>
+    <members>ToastEvent__e.Key__c</members>
+    <members>ToastEvent__e.Message__c</members>
+    <members>ToastEvent__e.Mode__c</members>
+    <members>ToastEvent__e.Title__c</members>
+    <members>ToastEvent__e.Variant__c</members>
+  </types>
+  <types>
+    <name>CustomObject</name>
+    <members>ToastEvent__e</members>
+  </types>
+  <version>48.0</version>
+</Package>
