@@ -17,7 +17,7 @@ export default class PlatformEventToast extends LightningElement {
     @api toastMessage;
     @api toastVariant;
     @api toastMode;
-    @api runInSystemMode;
+    @api runInUserMode;
     channelName = '/event/ToastEvent__e';
     subscription = {};
 
@@ -31,7 +31,7 @@ export default class PlatformEventToast extends LightningElement {
                 toastData['Key__c'] &&
                 ci.toastKeys.includes(toastData['Key__c']) &&
                 (
-                    ci.runInSystemMode ||
+                    ci.runInUserMode ||
                     (toastData['CreatedById'] === currentUserId)
                 )
             ) {
