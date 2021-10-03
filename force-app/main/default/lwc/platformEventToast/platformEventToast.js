@@ -2,8 +2,12 @@
 *	Author:- Rahul Malhotra
 *	Description:- Platform Event Toast
 *	Created:- 11/04/2020
-*	Last Updated:- 12/04/2020
+*	Last Updated:- 03/10/2021
 *	Code Origin:- SFDCStop (https://www.sfdcstop.com/)
+*   Change Log
+*   ----------
+*   SNo.    Date        Description
+*    1      03/10/2021  Added namespace fix and record id check
 */
 import { LightningElement, api } from 'lwc';
 import { subscribe, unsubscribe, onError } from 'lightning/empApi';
@@ -18,6 +22,7 @@ export default class PlatformEventToast extends LightningElement {
     @api toastVariant;
     @api toastMode;
     @api runInSystemMode;
+    @api recordId;
     channelName = '/event/ToastEvent__e';
     subscription = {};
 
@@ -26,6 +31,9 @@ export default class PlatformEventToast extends LightningElement {
         const ci = this;
         const toastCallback = function(response) {
             let toastData = response['data']['payload'];
+            if(toastData) {
+                toastData = ci.checkForNameSpace(toastData);
+            }
             if(
                 toastData &&
                 toastData['Key__c'] &&
@@ -33,6 +41,9 @@ export default class PlatformEventToast extends LightningElement {
                 (
                     ci.runInSystemMode ||
                     (toastData['CreatedById'] === currentUserId)
+                ) &&
+                (
+                    toastData['RecordId__c'] && ci.recordId ? toastData['RecordId__c'] === ci.recordId : true
                 )
             ) {
                 const toastEvent = new ShowToastEvent({
@@ -59,5 +70,27 @@ export default class PlatformEventToast extends LightningElement {
             console.log('Un-Subscribed from Platform Event Toast');
             console.log(response);
         });
+    }
+
+    checkForNameSpace(oldRecord) {
+        let newRecord = {};
+        for(let key in oldRecord) {
+            if(key.includes('Message__c')) {
+                newRecord['Message__c'] = oldRecord[key];
+            } else if(key.includes('Variant__c')) {
+                newRecord['Variant__c'] = oldRecord[key];
+            } else if(key.includes('Mode__c')) {
+                newRecord['Mode__c'] = oldRecord[key];
+            } else if(key.includes('Title__c')) {
+                newRecord['Title__c'] = oldRecord[key];
+            } else if(key.includes('Key__c')) {
+                newRecord['Key__c'] = oldRecord[key];
+            } else if(key.includes('RecordId__c')) {
+                newRecord['RecordId__c'] = oldRecord[key];
+            } else {
+                newRecord[key] = oldRecord[key];
+            }
+        }
+        return newRecord;
     }
 }
